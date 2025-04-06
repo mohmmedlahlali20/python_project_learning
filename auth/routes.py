@@ -47,7 +47,7 @@ def login():
     if user and check_password_hash(user[2], password):
         # JWT token generation
         token = jwt.encode({
-            'user_id': user[0],  # user id in the payload
+            'user_id': user[0],
             'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # expiration time of 1 hour
         }, Config.JWT_SECRET_KEY, algorithm='HS256')
 
